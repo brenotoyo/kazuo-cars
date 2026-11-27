@@ -28,12 +28,12 @@ export default function SobreHero() {
           <span className="text-white">Sobre Nós</span>
         </nav>
 
-        <div className="mt-10 grid gap-8 md:grid-cols-2 md:items-end">
+        <div className="mt-8 grid gap-6 md:mt-10 md:grid-cols-2 md:items-end md:gap-8">
           <div>
             <p className="text-vermelho-principal text-[11px] font-bold tracking-[0.2em] uppercase">
               Desde 2009 em São Paulo
             </p>
-            <h1 className="mt-3 text-5xl font-bold text-white md:text-6xl">
+            <h1 className="mt-3 text-4xl font-bold text-white sm:text-5xl md:text-6xl">
               Nossa <span className="text-vermelho-principal">História</span>
             </h1>
           </div>

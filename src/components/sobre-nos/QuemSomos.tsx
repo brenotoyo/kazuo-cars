@@ -22,7 +22,7 @@ const timeline = [
 export default function QuemSomos() {
   return (
     <section className="bg-fundo-principal py-16 md:py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 md:grid-cols-2 md:gap-12">
         {/* Imagem */}
         <div className="relative">
           <div className="border-bordas relative aspect-4/3 overflow-hidden rounded-2xl border">
@@ -35,7 +35,7 @@ export default function QuemSomos() {
             />
           </div>
 
-          <div className="bg-card border-bordas absolute -bottom-6 left-6 flex items-center gap-3 rounded-xl border p-3 pr-5 shadow-xl md:left-10">
+          <div className="bg-card border-bordas absolute right-4 -bottom-6 left-4 flex items-center gap-3 rounded-xl border p-3 pr-5 shadow-xl sm:right-auto sm:left-6 md:left-10">
             <span className="bg-vermelho-principal flex h-10 w-10 items-center justify-center rounded-lg text-white">
               <Store size={18} />
             </span>
@@ -73,9 +73,9 @@ export default function QuemSomos() {
           </div>
 
           {/* Linha do tempo */}
-          <ol className="border-bordas mt-8 ml-1.5 space-y-5 border-l">
+          <ol className="border-bordas mt-8 ml-1.5 space-y-6 border-l md:space-y-5">
             {timeline.map(({ title, text, active }) => (
-              <li key={title} className="relative pl-6">
+              <li key={title} className="relative pl-5 md:pl-6">
                 <span
                   className={`absolute top-1 -left-1.75 h-3 w-3 rounded-full border-2 ${
                     active

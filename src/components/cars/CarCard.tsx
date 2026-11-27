@@ -74,7 +74,11 @@ export default function CarCard({
 
         {/* Preço + botão: sempre no final do card */}
         <div className="border-bordas mt-auto border-t pt-4">
-          <div className={isCatalog ? '' : 'flex items-end justify-between'}>
+          <div
+            className={
+              isCatalog ? '' : 'flex flex-wrap items-end justify-between gap-3'
+            }
+          >
             <div>
               {!isCatalog && (
                 <p className="text-xs text-gray-500">Preço à vista</p>

@@ -1,7 +1,13 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { X, LayoutGrid, List, ChevronDown } from 'lucide-react';
+import {
+  X,
+  LayoutGrid,
+  List,
+  ChevronDown,
+  SlidersHorizontal,
+} from 'lucide-react';
 import { Car } from '@/src/types/car';
 import { formatPrice } from '@/src/lib/utils';
 import CarCard from './CarCard';
@@ -23,6 +29,7 @@ export default function CarCatalog({ cars }: { cars: Car[] }) {
   const [filters, setFilters] = useState<Filters>(initialFilters);
   const [sort, setSort] = useState('relevantes');
   const [view, setView] = useState<'grid' | 'list'>('grid');
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const priceChanged =
     filters.precoMin !== PRICE_LIMITS.min ||
@@ -99,16 +106,41 @@ export default function CarCatalog({ cars }: { cars: Car[] }) {
   ];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+    <div className="grid gap-4 md:gap-6 lg:grid-cols-[280px_1fr] lg:gap-8">
+      {/* Botão "Filtros" — visível apenas em mobile e tablet */}
+      <button
+        type="button"
+        aria-expanded={filtersOpen}
+        aria-controls="filtros-veiculos"
+        onClick={() => setFiltersOpen((open) => !open)}
+        className="bg-card border-bordas flex w-full items-center justify-between rounded-xl border px-4 py-3 text-white lg:hidden"
+      >
+        <span className="flex items-center gap-2">
+          <SlidersHorizontal size={16} className="text-vermelho-principal" />
+          <span className="font-bold">Filtros</span>
+          {activeCount > 0 && (
+            <span className="bg-vermelho-principal/20 text-vermelho-principal rounded-full px-2 text-xs font-bold">
+              {activeCount}
+            </span>
+          )}
+        </span>
+        <ChevronDown
+          size={18}
+          className={`text-gray-400 transition-transform ${filtersOpen ? 'rotate-180' : ''}`}
+        />
+      </button>
+
       <CarFilters
         cars={cars}
         filters={filters}
         onChange={setFilters}
         activeCount={activeCount}
         resultCount={result.length}
+        mobileOpen={filtersOpen}
+        onClose={() => setFiltersOpen(false)}
       />
 
-      <div>
+      <div className="min-w-0">
         {/* Barra superior */}
         <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-gray-400">
@@ -116,13 +148,13 @@ export default function CarCatalog({ cars }: { cars: Car[] }) {
             encontrados
           </p>
 
-          <div className="flex items-center gap-3">
-            <label className="bg-card border-bordas relative flex items-center rounded-lg border px-3 py-2 text-sm text-gray-500">
-              Ordenar por:
+          <div className="flex w-full items-center gap-3 sm:w-auto">
+            <label className="bg-card border-bordas relative flex min-w-0 flex-1 items-center rounded-lg border px-3 py-2 text-sm text-gray-500 sm:flex-initial">
+              <span className="shrink-0">Ordenar por:</span>
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
-                className="ml-2 appearance-none bg-transparent pr-5 font-semibold text-white outline-none"
+                className="ml-2 min-w-0 flex-1 appearance-none bg-transparent pr-5 font-semibold text-white outline-none sm:flex-initial"
               >
                 {sortOptions.map((o) => (
                   <option
@@ -188,7 +220,9 @@ export default function CarCatalog({ cars }: { cars: Car[] }) {
         {result.length > 0 ? (
           <div
             className={`mt-6 grid gap-6 ${
-              view === 'grid' ? 'sm:grid-cols-2 xl:grid-cols-3' : 'grid-cols-1'
+              view === 'grid'
+                ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
+                : 'grid-cols-1'
             }`}
           >
             {result.map((car) => (

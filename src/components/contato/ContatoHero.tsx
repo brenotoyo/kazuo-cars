@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react';
 
 export default function ContatoHero() {
   return (
-    <section className="bg-fundo-secundario border-bordas mb-10 border-b py-10">
+    <section className="bg-fundo-secundario border-bordas mb-8 border-b py-8 md:mb-10 md:py-10">
       <div className="mx-auto max-w-6xl px-4">
         <nav
           aria-label="Breadcrumb"
@@ -19,7 +19,7 @@ export default function ContatoHero() {
         <p className="text-vermelho-principal mt-6 text-[11px] font-bold tracking-[0.2em] uppercase">
           Contato
         </p>
-        <h1 className="mt-2 text-4xl font-bold text-white md:text-5xl">
+        <h1 className="mt-2 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
           Fale com a Kazuo Cars
         </h1>
         <p className="mt-3 max-w-xl text-sm text-gray-400">

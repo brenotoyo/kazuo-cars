@@ -31,7 +31,7 @@ export default function Diferenciais() {
           <p className="text-vermelho-principal text-[11px] font-bold tracking-[0.2em] uppercase">
             Nossos diferenciais
           </p>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+          <h2 className="mt-3 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
             Por que comprar na Kazuo Cars
           </h2>
           <p className="mt-4 text-sm text-gray-400">
@@ -40,7 +40,7 @@ export default function Diferenciais() {
           </p>
         </div>
 
-        <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-1 gap-4 md:mt-12 md:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, text }) => (
             <li
               key={title}
