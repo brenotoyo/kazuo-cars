@@ -7,7 +7,7 @@ import Link from 'next/link';
 const MAX = 500;
 
 const inputWrapper =
-  'bg-fundo-principal border-bordas focus-within:border-vermelho-principal flex items-center gap-2 rounded-lg border px-3';
+  'bg-fundo-principal border-bordas focus-within:border-vermelho-principal flex w-full items-center gap-2 rounded-lg border px-3';
 const inputClass =
   'w-full bg-transparent py-3 text-sm text-white outline-none placeholder:text-gray-600';
 const labelClass = 'mb-2 block text-xs font-semibold text-white';
@@ -64,7 +64,7 @@ export default function ContatoForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-card border-bordas rounded-2xl border p-6 md:p-8"
+      className="bg-card border-bordas w-full min-w-0 rounded-2xl border p-5 sm:p-6 md:p-8"
     >
       <div className="flex items-start gap-3">
         <span className="bg-vermelho-principal/15 text-vermelho-principal flex h-11 w-11 shrink-0 items-center justify-center rounded-xl">
@@ -99,7 +99,7 @@ export default function ContatoForm() {
         </div>
 
         {/* E-mail e telefone */}
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <div>
             <label htmlFor="email" className={labelClass}>
               E-mail

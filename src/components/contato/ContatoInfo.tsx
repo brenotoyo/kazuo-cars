@@ -40,7 +40,7 @@ const infos = [
 
 export default function ContatoInfo() {
   return (
-    <div className="space-y-6">
+    <div className="min-w-0 space-y-6">
       {/* WhatsApp */}
       <div className="bg-card rounded-2xl border border-green-500/30 p-6">
         <p className="text-[11px] font-bold tracking-[0.2em] text-green-400 uppercase">
@@ -96,7 +96,7 @@ export default function ContatoInfo() {
               <span className="bg-vermelho-principal/15 text-vermelho-principal flex h-9 w-9 shrink-0 items-center justify-center rounded-lg">
                 <Icon size={15} />
               </span>
-              <div className="flex-1">
+              <div className="min-w-0 flex-1">
                 <p className="text-vermelho-principal text-[10px] font-bold tracking-wider uppercase">
                   {label}
                 </p>
@@ -113,7 +113,7 @@ export default function ContatoInfo() {
                   href={action.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-vermelho-principal text-[11px] font-semibold hover:underline"
+                  className="text-vermelho-principal shrink-0 text-[11px] font-semibold hover:underline"
                 >
                   {action.label}
                 </a>

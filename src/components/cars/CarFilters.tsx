@@ -41,6 +41,9 @@ type Props = {
   onChange: (f: Filters) => void;
   activeCount: number;
   resultCount: number;
+  /** Em mobile/tablet (<1024px) o painel só aparece quando aberto */
+  mobileOpen?: boolean;
+  onClose?: () => void;
 };
 
 const toggle = (list: string[], value: string) =>
@@ -70,6 +73,8 @@ export default function CarFilters({
   onChange,
   activeCount,
   resultCount,
+  mobileOpen = false,
+  onClose,
 }: Props) {
   // contagem por marca
   const marcas = Object.entries(
@@ -94,7 +99,12 @@ export default function CarFilters({
   const cores = Array.from(new Set(cars.map((c) => c.cor)));
 
   return (
-    <aside className="bg-card border-bordas h-fit rounded-2xl border p-5 lg:sticky lg:top-24">
+    <aside
+      id="filtros-veiculos"
+      className={`bg-card border-bordas h-fit rounded-2xl border p-5 lg:sticky lg:top-24 lg:block ${
+        mobileOpen ? 'block' : 'hidden'
+      }`}
+    >
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2 text-white">
           <SlidersHorizontal size={16} className="text-principal-red" />
@@ -245,9 +255,13 @@ export default function CarFilters({
       </Group>
 
       <div className="border-bordas border-t pt-5">
-        <span className="border-principal-red text-principal-red block rounded-lg border py-3 text-center text-sm font-semibold">
+        <button
+          type="button"
+          onClick={onClose}
+          className="border-principal-red text-principal-red block w-full rounded-lg border py-3 text-center text-sm font-semibold lg:cursor-default"
+        >
           Mostrar {resultCount} resultados
-        </span>
+        </button>
       </div>
     </aside>
   );

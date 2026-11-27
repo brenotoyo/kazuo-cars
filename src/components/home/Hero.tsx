@@ -59,12 +59,12 @@ export default function Hero() {
       {/* Conteúdo */}
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col items-center justify-center px-4 py-16 text-center">
         {/* Título */}
-        <h1 className="text-4xl font-bold tracking-tight text-white">
+        <h1 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
           Encontre seu Carro{' '}
           <span className="text-vermelho-principal">Ideal</span>
         </h1>
 
-        <p className="mt-6 max-w-xl text-base text-gray-300">
+        <p className="mt-4 max-w-xl text-sm text-gray-300 md:mt-6 md:text-base">
           Seminovos selecionados a dedo, com procedência garantida, garantia de
           12 meses e financiamento aprovado em até 30 minutos.
         </p>
@@ -73,18 +73,18 @@ export default function Hero() {
         <form
           action="/carros-a-venda"
           method="get"
-          className="border-bordas bg-fundo-principal/70 mt-8 flex w-full max-w-2xl items-center gap-2 rounded-xl border p-2 backdrop-blur"
+          className="border-bordas bg-fundo-principal/70 mt-8 flex w-full max-w-2xl flex-wrap items-center gap-2 rounded-xl border p-2 backdrop-blur sm:flex-nowrap"
         >
           <Search size={16} className="ml-3 shrink-0 text-gray-400" />
           <input
             type="text"
             name="busca"
             placeholder="Busque por marca, modelo ou ano — ex: Honda Civic 2021"
-            className="flex-1 bg-transparent px-2 py-2 text-sm text-white outline-none placeholder:text-gray-500"
+            className="min-w-0 flex-1 bg-transparent px-2 py-2 text-sm text-white outline-none placeholder:text-gray-500"
           />
           <button
             type="submit"
-            className="bg-vermelho-principal flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110"
+            className="bg-vermelho-principal flex w-full items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition hover:brightness-110 sm:w-auto"
           >
             <Search size={14} />
             Buscar
@@ -108,7 +108,7 @@ export default function Hero() {
 
       {/* Barra de diferenciais */}
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-8">
-        <ul className="border-bordas bg-fundo-principal/70 lg:divide-bordas grid grid-cols-1 rounded-xl border backdrop-blur sm:grid-cols-2 lg:grid-cols-4 lg:divide-x">
+        <ul className="border-bordas bg-fundo-principal/70 lg:divide-bordas grid grid-cols-1 rounded-xl border backdrop-blur md:grid-cols-2 lg:grid-cols-4 lg:divide-x">
           {benefits.map(({ icon: Icon, title, text }) => (
             <li key={title} className="flex items-center gap-3 p-4">
               <span className="bg-vermelho-principal/15 text-vermelho-principal flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">

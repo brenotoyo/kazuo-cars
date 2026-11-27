@@ -7,7 +7,7 @@ export default function Destaque() {
   const destaques = cars.filter((car) => car.destaque).slice(0, 3);
 
   return (
-    <section className="bg-fundo-secundario py-20">
+    <section className="bg-fundo-secundario py-14 md:py-20">
       <div className="mx-auto max-w-6xl px-4">
         {/* Cabeçalho */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -15,7 +15,7 @@ export default function Destaque() {
             <h3 className="text-vermelho-principal text-xs font-bold tracking-[0.2em] uppercase">
               Destaques do mês
             </h3>
-            <h2 className="mt-3 text-4xl font-bold text-white md:text-5xl">
+            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
               Mais Vendidos
             </h2>
             <p className="mt-4 text-gray-400">
@@ -34,7 +34,7 @@ export default function Destaque() {
         </div>
 
         {/* Grade de cards */}
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
           {destaques.map((car) => (
             <CarCard key={car.id} car={car} />
           ))}

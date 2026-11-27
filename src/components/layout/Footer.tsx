@@ -35,11 +35,11 @@ const headingClass =
 
 export default function Footer() {
   return (
-    <footer className="bg-fundo-principal border-bordas border-t px-24 py-12 text-white">
+    <footer className="bg-fundo-principal border-bordas border-t px-4 py-12 text-white md:px-8 lg:px-24">
       <div className="max-w-8xl mx-auto">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Coluna 1 - Logo e descrição */}
-          <div className="col-span-2 flex flex-col items-center text-center md:items-start md:text-left">
+          <div className="flex flex-col items-center text-center md:col-span-2 md:items-start md:text-left">
             <Link href="/" className="mb-4 flex items-center gap-2">
               <div className="bg-vermetext-vermelho-principal flex h-10 w-10 items-center justify-center rounded-xl">
                 <div className="bg-vermelho-principal flex h-10 w-10 items-center justify-center rounded-xl">
@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
 
           {/* Coluna 4 - Redes sociais */}
-          <div className="col-span-2 flex flex-col items-center md:col-span-1 md:items-start">
+          <div className="flex flex-col items-center md:col-span-2 md:items-start lg:col-span-1">
             <h4 className={headingClass}>Siga-nos</h4>
             <div className="flex gap-3">
               {socials.map(({ icon: Icon, label, href }) => (
